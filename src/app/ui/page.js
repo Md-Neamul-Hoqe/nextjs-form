@@ -2,20 +2,21 @@
 
 import InputField from '@/components/input';
 import InputLabel from '@/components/label';
-import { useForm } from 'react-hook-form';
+import { Form, useForm } from 'react-hook-form';
 
 export default function FormAside() {
     const {
         handleSubmit,
         register,
-        formState: { errors }
+        formState: { errors },
     } = useForm();
 
     const formDataSubmit = data => {
-        // const form = new FormData()
-        // const name = form.get('name')
         console.log('data on the form: ', data);
+
+        return alert(`Hello ${data.name}`)
     }
+
     return (
         <form className='flex flex-col gap-5 card-body' onSubmit={handleSubmit(formDataSubmit)}>
             <div className="form-control">
